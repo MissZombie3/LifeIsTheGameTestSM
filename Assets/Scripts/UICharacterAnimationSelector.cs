@@ -12,14 +12,14 @@ public class UICharacterAnimationSelector : MonoBehaviour
     private void Awake()
     {
         buttons = GetComponentsInChildren<UIPlayAnimationButton>();
+    }
 
+    private void Start()
+    {
         if (buttons.Length != animationsName.Length)
             throw new System.Exception("La cantidad de botones no es igual a la de animaciones. Animaciones: " + animationsName.Length + ", botones: " + buttons.Length);
 
         for (int i = 0; i < buttons.Length; i++)
-        {
             buttons[i].Setup(animator, animationsName[i]);
-        }
     }
-
 }

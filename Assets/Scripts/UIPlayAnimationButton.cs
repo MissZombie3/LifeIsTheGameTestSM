@@ -33,5 +33,8 @@ public class UIPlayAnimationButton : MonoBehaviour
     private void OnClick()
     {
         animator.Play(animationName);
+
+        PlayerPrefs.SetString("ANIMATION", animationName);
+        PlayerPrefs.Save();
     }
 }

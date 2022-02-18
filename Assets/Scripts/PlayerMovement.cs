@@ -15,9 +15,22 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 12f;
 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Rigidbody rBody = hit.collider.attachedRigidbody;
+        
+       // if (rBody != null && !rBody.isKinematic)
+         //   rBody.velocity += hit.controller.velocity;
+    }
+
     private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
