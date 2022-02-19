@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileAtraction : MonoBehaviour
+public class ProjectileAttraction : MonoBehaviour
 {
     [SerializeField] private float attractionRadius = 2f;
     [SerializeField] private float attractionForce = 2f;

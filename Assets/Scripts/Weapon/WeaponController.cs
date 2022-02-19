@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
     [SerializeField] private Camera cam;
+    [SerializeField] private TextMeshProUGUI weaponTypeText;
     [SerializeField] private List<WeaponReference> weapons = new List<WeaponReference>();
-    
+
     private WeaponReference currentWeapon;
     private float nextShoot = -1;
 
@@ -43,7 +45,10 @@ public class WeaponController : MonoBehaviour
         HideAllWeapons();
 
         if (currentWeapon != null)
+        {
             currentWeapon.model.SetActive(true);
+            weaponTypeText.text = type.ToString();
+        }
     }
 
     private void HideAllWeapons()
